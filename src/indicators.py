@@ -56,10 +56,19 @@ def relative_strength_index(stock):
 
 def get_earning_date(stock):
     calendar = yf.Calendars(start=datetime.now(), end=datetime.now() + timedelta(days=365))
-    print (calendar)
-    date = yf.Ticker(stock).calendar.get("Earnings Date")
-    print(type(date))
-    print(date[0])
+
+    date = yf.Ticker(stock).calendar.get("Earnings Date")   #company's earning date
+
+    broad_market_events = yf.Calendars().get_earnings_calendar(
+    start=datetime.now().date(),
+    end=datetime.now().date() + timedelta(days=30)
+    )  # for next 30 days
+
+    market_events = broad_market_events
+
+
+    return (date[0] if date is not None else None), market_events
+
 
 
 if __name__ == "__main__":
@@ -68,10 +77,8 @@ if __name__ == "__main__":
     
 
 ## headlines
-## when is next earnign report
 ##pe
 ## price target and analyst rating
 ## compare next stock
 ## pe
 
-## take derivative of SMA50 and SMA200 to find if they are going to intersect

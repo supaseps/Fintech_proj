@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
-from indicators import moving_average_calculator, relative_strength_index
+from indicators import moving_average_calculator, relative_strength_index, get_earning_date
 
 st.set_page_config(page_title="Stock Technical Analysis", layout="wide")
 
@@ -16,6 +16,7 @@ if st.button("Analyze"):
         with st.spinner(f"Fetching data for {stock}..."):
             ma_data, signal = moving_average_calculator(stock)
             rsi_data = relative_strength_index(stock)
+            company_earnings_date, market_events = get_earning_date(stock)
 
         if ma_data is None:
             st.error(f"No stock found for ticker '{stock}'.")
@@ -66,3 +67,17 @@ if st.button("Analyze"):
                         st.success(f"Latest RSI: {latest_rsi:.2f} (Oversold)")
                     else:
                         st.info(f"Latest RSI: {latest_rsi:.2f} (Neutral)")
+
+            # --- Earnings dates (below charts) ---
+            st.subheader("Earnings Calendar")
+
+            if company_earnings_date:
+                st.write(f"**{stock}** next earnings date: **{company_earnings_date}**")
+            else:
+                st.info(f"No upcoming earnings date found for {stock}.")
+
+            st.markdown("**Other companies reporting earnings in the next 30 days:**")
+            if market_events is not None and not market_events.empty:
+                st.dataframe(market_events, height=350, use_container_width=True)
+            else:
+                st.info("No market earnings calendar data available right now.")

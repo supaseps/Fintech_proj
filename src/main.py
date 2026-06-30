@@ -1,11 +1,11 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
-from back import get_moving_averages, get_rsi
+from indicators import moving_average_calculator, relative_strength_index
 
 st.set_page_config(page_title="Stock Technical Analysis", layout="wide")
 
-st.title("📈 Stock Technical Analysis")
+st.title("Stock Indicator Analysis")
 
 stock = st.text_input("Enter a stock ticker", value="AAPL").strip().upper()
 
@@ -14,8 +14,8 @@ if st.button("Analyze"):
         st.warning("Please enter a ticker symbol.")
     else:
         with st.spinner(f"Fetching data for {stock}..."):
-            ma_data, signal = get_moving_averages(stock)
-            rsi_data = get_rsi(stock)
+            ma_data, signal = moving_average_calculator(stock)
+            rsi_data = relative_strength_index(stock)
 
         if ma_data is None:
             st.error(f"No stock found for ticker '{stock}'.")

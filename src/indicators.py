@@ -2,9 +2,13 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import numpy as np
 from datetime import datetime, timedelta
+import pandas as pd
 
-def stock_picker():
-    stock = input("Enter stock here ... ").strip().upper()
+
+def stock_picker(stock=None):
+    if stock is None:
+        stock = input("Enter stock here ... ").strip().upper()
+
     data = yf.download(stock, period="5y", interval="1d")
 
     if data.empty is True:

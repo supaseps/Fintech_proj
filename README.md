@@ -1,9 +1,10 @@
-# Fintech_proj
-I am not a firm believer of technical indicators. As a matter of fact, I would say I am more of a strong EMH believer at times. 
-But I always hated how Trading view required a premium account to view some of these indicators that actually do give a lot of valuable information on the state of company and it's price history.
-Therefore, I decided to create this dashboard to allow for users to access indicaotrs that otherwise were restricted for premium users. 
-This porject currently has:
-* Short term and long term moving average
-* Relative Strength Index
-* Average directional index along the positive and negative direction movement indicators
-* Some essential fundamental inidcators
+# Stock Technical Indicator Dashboard
+I am not a firm believer in technical indicators. In fact, I would say I lean more toward the Efficient Market Hypothesis (EMH) at times. However, I have always disliked how TradingView requires a premium subscription to access some indicators that can provide valuable insights into a company's state and its price history.
+
+Because of this, I decided to create this dashboard, allowing users to access indicators that would otherwise be restricted to premium users.
+The project currently includes:
+
+* Short-term and long-term moving averages
+* Relative Strength Index (RSI)
+* Average Directional Index (ADX), along with the Positive and Negative Directional Movement Indicators (+DMI and -DMI)
+* A selection of essential fundamental indicators

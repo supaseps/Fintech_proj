@@ -8,3 +8,5 @@ The project currently includes:
 * Relative Strength Index (RSI)
 * Average Directional Index (ADX), along with the Positive and Negative Directional Movement Indicators (+DMI and -DMI)
 * A selection of essential fundamental indicators
+
+To Run use command  python -m streamlit run main.py

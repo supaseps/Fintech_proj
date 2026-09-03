@@ -9,4 +9,4 @@ The project currently includes:
 * Average Directional Index (ADX), along with the Positive and Negative Directional Movement Indicators (+DMI and -DMI)
 * A selection of essential fundamental indicators
 
-To Run use command  python -m streamlit run main.py
+To Run go to `Fintech_proj>src` and use comman `python -m streamlit run main.py`

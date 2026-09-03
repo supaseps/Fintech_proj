@@ -135,8 +135,7 @@ if __name__ == "__main__":
     
 
 ## headlines
-##pe
-## price target and analyst rating (morning star)
 ## compare next stock
-
+## make ATR separate
+##Linear Regression Channel 
 
